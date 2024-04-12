@@ -1,0 +1,81 @@
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        #content {
+            text-align: center;
+        }
+
+        #cheese {
+            font-size: 100px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            animation: bounce 0.5s ease;
+        }
+
+        .additional-text {
+            font-size: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #007bff; /* Blue color for clickable text */
+        }
+
+        #text-above {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #bottom-left-text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        #shop-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 999; /* Ensure button is above other elements */
+        }
+
+        .shop-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+        }
+
+        .shop-menu-item {
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
