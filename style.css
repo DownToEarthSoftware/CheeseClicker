@@ -91,3 +91,9 @@
             top: 10px;
             left: 10px;
             z-index: 9999; /* Ensure it appears above other elements */
+        }
+        .prevent-select {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
