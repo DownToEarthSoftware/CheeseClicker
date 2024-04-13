@@ -6,7 +6,6 @@
             margin: 0;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
-            position: relative;
         }
 
         #content {
@@ -21,24 +20,9 @@
             animation: bounce 0.5s ease;
         }
 
-        .additional-text {
-            font-size: 20px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            color: #007bff; /* Blue color for clickable text */
-        }
-
         #text-above {
             font-size: 24px;
             margin-bottom: 20px;
-        }
-
-        #bottom-left-text {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 18px;
-            color: #555;
         }
 
         #shop-button {
@@ -52,7 +36,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            z-index: 999; /* Ensure button is above other elements */
+            z-index: 999;
         }
 
         .shop-menu {
@@ -68,14 +52,32 @@
             z-index: 9999;
         }
 
-        .shop-menu-item {
-            font-size: 16px;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
         @keyframes bounce {
             0% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
+        }
+
+        /* Styles for bottom-left text */
+        #bottom-left-text {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .additional-text {
+            font-size: 16px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        /* Style for background music container */
+        #bgm-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
         }
