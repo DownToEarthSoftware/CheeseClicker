@@ -1,22 +1,43 @@
-  <div id="content">
-        <div id="text-above">Cheese Click Counter:</div>
+    <div id="content">
+        <div id="text-above">Cheese Click Counter: 0</div>
         <div id="cheese" onclick="handleCheeseClick()">🧀</div>
     </div>
 
     <button id="shop-button" onclick="toggleShopMenu()">Shop</button>
-
-    <div id="bottom-left-text">
-        © Down To Earth 2024 - 2024 under the dtes Public License.
-        <br>
-        <div class="additional-text">GitHub</div>
-        <div class="additional-text">Support us 💖</div>
-    </div>
-
+    <br>
+    <button id="changelog-button" onclick="toggleShopMenu()">Updates</button>
 
     <!-- Shop Menu -->
-    <div id="shop-menu" class="shop-menu">
+    <div id="changelog-button" class="cl-menu">
         <div class="shop-menu-item" onclick="buyPowerUp('double-click')">Double Click Power-Up - Cost: 10 cheese</div>
         <div class="shop-menu-item" onclick="buyPowerUp('auto-click')">Auto Click Power-Up - Cost: 20 cheese</div>
         <div class="shop-menu-item" onclick="buyPowerUp('cheese-rain')">Cheese Rain Power-Up - Cost: 50 cheese</div>
         <button onclick="closeShopMenu()">Close</button>
     </div>
+
+       <!-- Shop Menu -->
+        <div id="shop-button" class="shop-menu">
+            <h1>Version : Alpha 2 "Rythem update"</h1>
+            <br>
+            <p>- Added Click in style by Statix Bolt (yes this dumb ass game has ost)</p>
+            <p>- You can now click by clicking ctrl (Command if your on a mac)</p>
+            <br>
+            <a href="https://github.com/DownToEarthSoftware/CheeseClicker/releases">View the build on GitHub</a>
+        <button onclick="closeShopMenu()">Close</button>
+        </div>
+
+    <!-- Background Music and Control Button -->
+    <div id="bgm-container">
+        <audio id="background-music" src="clickwithstyle.mp3" loop></audio>
+        <p>Clicking with style by Statix Bolt</p>
+        <button id="music-control" onclick="toggleBackgroundMusic()">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Bottom Left Text -->
+    <div id="bottom-left-text">
+        © Down To Earth 2024 - 2024 under the dtes Public License.
+        <br>
+        <div class="additional-text">GitHub</div>
+        <div class="additional-text">Support us 💖</div>
