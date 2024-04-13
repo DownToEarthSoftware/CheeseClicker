@@ -1,7 +1,6 @@
-// it's just the game logic tbh.
-
 let clickCounter = 0;
         let cheeseCount = 0;
+        let isMusicPlaying = true;
 
         function handleCheeseClick() {
             clickCounter++;
@@ -11,13 +10,27 @@ let clickCounter = 0;
 
             const cheese = document.getElementById('cheese');
             cheese.style.animation = 'none';
-            void cheese.offsetWidth; // Trigger reflow
+            void cheese.offsetWidth;
             cheese.style.animation = 'bounce 0.5s ease';
         }
 
         function playClickSound() {
-            const audio = new Audio('click-sound.mp3'); // Provide path to your sound file
+            const audio = new Audio('click-sound.mp3');
             audio.play();
+        }
+
+        function toggleBackgroundMusic() {
+            const audio = document.getElementById('background-music');
+
+            if (isMusicPlaying) {
+                audio.pause();
+                document.getElementById('music-control').innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                audio.play();
+                document.getElementById('music-control').innerHTML = '<i class="fas fa-pause"></i>';
+            }
+
+            isMusicPlaying = !isMusicPlaying;
         }
 
         function toggleShopMenu() {
@@ -40,16 +53,14 @@ let clickCounter = 0;
                     break;
                 case 'auto-click':
                     cost = 20;
-                    // Start auto-click feature
-                    setInterval(handleCheeseClick, 1000); // Auto-click every second
+                    setInterval(handleCheeseClick, 1000);
                     break;
                 case 'cheese-rain':
                     cost = 50;
-                    // Increase cheese per click temporarily
                     multiplier = 5;
                     setTimeout(() => {
-                        multiplier = 1; // Reset multiplier after 10 seconds
-                    }, 10000); // 10 seconds
+                        multiplier = 1;
+                    }, 10000);
                     break;
                 default:
                     return;
@@ -64,3 +75,11 @@ let clickCounter = 0;
                 alert('Not enough cheese to buy this power-up!');
             }
         }
+
+        // Add event listener for a custom key (e.g., 'A' key, keyCode 65)
+        document.addEventListener('keydown', function(event) {
+            // Change '65' to the desired keyCode of the key you want to use
+            if (event.keyCode === 17) { // This checks for the 'A' key
+                handleCheeseClick(); // Simulate clicking the cheese when the 'A' key is pressed
+            }
+        });
