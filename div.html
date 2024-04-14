@@ -1,48 +1,44 @@
-<div id="top-right-buttons">
+    <div id="top-right-buttons">
         <button id="shop-button" onclick="toggleMenu('shop-menu')">
             <i class="fas fa-store"></i> Shop
         </button>
         <button id="changelog-button" onclick="toggleMenu('changelog-menu')">
             <i class="fas fa-history"></i> Updates
         </button>
+        <!-- Mode Toggle Button -->
+        <div id="mode-toggle">
+            <button onclick="toggleMode()">
+                <i id="mode-icon" class="fas fa-moon"></i> <!-- Start with moon icon for dark mode -->
+            </button>
+        </div>
     </div>
 
     <div id="content">
         <div id="text-above">Cheese Click Counter: 0</div>
-        <div id="cheese" onclick="handleCheeseClick()">🧀</div>
+        <div id="cheese" onclick="handleCheeseClick()">
+            <img id="cheese-image" src="cheese-wedge_1f9c0.png" style="width: 100px; height: 100px;">
+        </div>
     </div>
 
-    <!-- Shop Menu -->
-    <div id="shop-menu" class="menu">
+    <div id="shop-menu" class="menu" style="display: none;">
         <div class="shop-menu-item" onclick="buyPowerUp('double-click')">Double Click Power-Up - Cost: 10 cheese</div>
         <div class="shop-menu-item" onclick="buyPowerUp('auto-click')">Auto Click Power-Up - Cost: 20 cheese</div>
         <div class="shop-menu-item" onclick="buyPowerUp('cheese-rain')">Cheese Rain Power-Up - Cost: 50 cheese</div>
         <button onclick="closeMenu('shop-menu')">Close</button>
     </div>
 
-    <!-- Changelog Menu -->
-    <div id="changelog-menu" class="menu">
-        <h1>Version: Alpha 2 "Rhythm update"</h1>
+    <div id="changelog-menu" class="menu" style="display: none;">
+        <h1>Version: Alpha 3 "Enter the night"</h1>
         <br>
-        <p>- Added Click in style by Statix Bolt (yes, this dumb game has music)</p>
-        <p>- You can now click by pressing Ctrl (Command if you're on a Mac)</p>
-        <p>- Changed the buttons/ui (they look a lot better now)</p>
+        <p>- Fixed Unicode issue (reported by <a herf="https://github.com/Lillyliv7">Lilly on GitHub</a>)</p>
+        <p>- Music is temporarily gone in the client (it's coming back soon)</p>
+        <p>- Dark Mode and Light Mode toggle added (There are still a lot of bugs in it)</p>
         <a href="https://github.com/DownToEarthSoftware/CheeseClicker/releases">View the build on GitHub</a>
         <button onclick="closeMenu('changelog-menu')">Close</button>
     </div>
 
-    <!-- Background Music and Control Button -->
-    <div id="bgm-container">
-        <audio id="background-music" src="clickwithstyle.mp3" loop></audio>
-        <p>Clicking with style by Statix Bolt</p>
-        <button id="music-control" onclick="toggleBackgroundMusic()">
-            <i class="fas fa-music"></i>
-        </button>
-    </div>
-
-    <!-- Bottom Left Text -->
     <div id="bottom-left-text">
-        © Down To Earth 2024 - 2024 under the DTES Public License.
+        &copy; Down To Earth 2024 - 2024 under the DTES Public License.
         <br>
         <div class="additional-text"><a href="https://github.com/DownToEarthSoftware/CheeseClicker">GitHub</a></div>
         <div class="additional-text"><a href="https://guilded.gg/DTE">Guilded server</a></div>
