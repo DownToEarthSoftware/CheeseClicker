@@ -4,9 +4,17 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
             font-family: Arial, sans-serif;
-            position: relative; /* Ensure relative positioning for absolute button placement */
+            position: relative;
+            transition: background-color 0.3s ease; /* Smooth transition for background color change */
+            background-color: #f0f0f0; /* Default light mode background */
+            color: #333; /* Default light mode text color */
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
         }
 
         #top-right-buttons {
@@ -37,29 +45,8 @@
         }
 
         #cheese {
-            font-size: 100px;
-            color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
             cursor: pointer;
             animation: bounce 0.5s ease;
-        }
-
-        #text-above {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .menu {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            z-index: 9999;
         }
 
         @keyframes bounce {
@@ -68,26 +55,11 @@
             100% { transform: translateY(0); }
         }
 
-        /* Styles for bottom-left text */
         #bottom-left-text {
             position: fixed;
             bottom: 10px;
             left: 10px;
             font-size: 18px;
             color: #555;
-            z-index: 9999; /* Ensure it appears above other elements */
+            z-index: 9999;
         }
-
-        .additional-text {
-            font-size: 16px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            color: #007bff;
-        }
-
-        /* Style for background music container */
-        #bgm-container {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 9999; /* Ensure it appears above other elements */
