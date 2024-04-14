@@ -1,45 +1,22 @@
-let clickCounter = 0;
+        let clickCounter = 0;
         let cheeseCount = 0;
-        let isMusicPlaying = true;
+        let isDarkMode = false;
 
         function handleCheeseClick() {
             clickCounter++;
             cheeseCount++;
-            document.getElementById('text-above').textContent = `Cheese Click Counter: ${clickCounter}`;
-            playClickSound();
+            updateCounter();
 
-            const cheese = document.getElementById('cheese');
+            const cheese = document.getElementById('cheese-image');
+
+            // Trigger bounce animation
             cheese.style.animation = 'none';
-            void cheese.offsetWidth;
+            void cheese.offsetWidth; // Force reflow to reset animation
             cheese.style.animation = 'bounce 0.5s ease';
         }
 
-        function playClickSound() {
-            const audio = new Audio('click-sound.mp3');
-            audio.play();
-        }
-
-        function toggleBackgroundMusic() {
-            const audio = document.getElementById('background-music');
-
-            if (isMusicPlaying) {
-                audio.pause();
-                document.getElementById('music-control').innerHTML = '<i class="fas fa-play"></i>';
-            } else {
-                audio.play();
-                document.getElementById('music-control').innerHTML = '<i class="fas fa-pause"></i>';
-            }
-
-            isMusicPlaying = !isMusicPlaying;
-        }
-
-        function toggleShopMenu() {
-            const shopMenu = document.getElementById('shop-menu');
-            shopMenu.style.display = shopMenu.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function closeShopMenu() {
-            document.getElementById('shop-menu').style.display = 'none';
+        function updateCounter() {
+            document.getElementById('text-above').textContent = `Cheese Click Counter: ${clickCounter}`;
         }
 
         function buyPowerUp(powerUp) {
@@ -69,17 +46,41 @@ let clickCounter = 0;
             if (cheeseCount >= cost) {
                 cheeseCount -= cost;
                 clickCounter *= multiplier;
-                document.getElementById('text-above').textContent = `Cheese Click Counter: ${clickCounter}`;
-                closeShopMenu();
+                updateCounter();
             } else {
                 alert('Not enough cheese to buy this power-up!');
             }
         }
 
-        // Add event listener for a custom key (e.g., 'A' key, keyCode 65)
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function closeMenu(menuId) {
+            document.getElementById(menuId).style.display = 'none';
+        }
+
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById('mode-icon');
+
+            isDarkMode = !isDarkMode;
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+                modeIcon.className = 'fas fa-sun'; // Change icon to sun for dark mode
+            } else {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+                modeIcon.className = 'fas fa-moon'; // Change icon to moon for light mode
+            }
+        }
+
+        // Add event listener for a custom key (e.g., 'Ctrl' key, keyCode 17)
         document.addEventListener('keydown', function(event) {
-            // Change '65' to the desired keyCode of the key you want to use
-            if (event.keyCode === 17) { // This checks for the 'A' key
-                handleCheeseClick(); // Simulate clicking the cheese when the 'A' key is pressed
+            if (event.keyCode === 17) { // This checks for the 'Ctrl' key
+                handleCheeseClick(); // Simulate clicking the cheese when the 'Ctrl' key is pressed
             }
         });
